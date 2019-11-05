@@ -21,3 +21,18 @@ const doWork = () => {
 
 setTimeout(()=>{doWork();}, 3000);
 // TODO make callback for stat pull instead of timeout (or combine)
+
+// const Http = new XMLHttpRequest();
+// const playerName = "torvesta";
+// const url='https://cors-anywhere.herokuapp.com/https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player='+playerName;
+// Http.open("GET", url);
+// Http.send();
+//
+// Http.onreadystatechange = (e) => {
+//   if (Http.responseText) {
+//     // Might have to do with how the proxy is set up, but this actually gets called 3 times, the first
+//     // of which is invalid, and the last 2 are the same
+//     // this ignores the first call
+//     console.log(Http.responseText.split('\n'));
+//   );
+// }
