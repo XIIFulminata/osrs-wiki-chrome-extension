@@ -27,7 +27,25 @@ const skills = {
   construction: 1,
 };
 
+// cba with CORS right now, so leaving this as proof of concept
+skills.farming = 70;
+skills.agility = 99;
 
+const meetsLevelRequirement = (reqBody) => {
+  // check if legitimate level - skill combo
+  if (reqBody.length < 2) {
+    return false;
+  }
+  let [skillLevel, skillName] = reqBody.slice(0,2);
+  skillName = skillName.toLowerCase();
+
+  if (!isNaN(skillLevel)) { // is the firest element a number
+    if (skillName && skills.hasOwnProperty(skillName)) {  // is a valid skill
+      return skills[skillName] >= skillLevel;
+    }
+  }
+  return false;
+};
 
 const doWork = () => {
   const questDetailsHeaderNodeList = document.querySelectorAll('.questdetails-header');
@@ -38,8 +56,12 @@ const doWork = () => {
   const requirements = [].slice.call(requirementsNodeList);
 
   requirements.forEach(el=>{
-    if (done.has(el.innerText.split('\n')[0]) && !el.className.includes('checked')) {
-      el.click();
+    const reqBody = el.innerText.split('\n');
+    const reqText = reqBody[0];
+    if (done.has(reqText) || meetsLevelRequirement(reqBody)) {
+      if (!el.className.includes('checked')) {
+        el.click();
+      }
       // rather than settting className to checked manually, this allows for the
       // standard click behavior which handles nested quests already
     }
