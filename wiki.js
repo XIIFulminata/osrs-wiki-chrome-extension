@@ -1,6 +1,33 @@
 // good test page: -> https://oldschool.runescape.wiki/w/Song_of_the_Elves or /Quick_guide
 
-done = new Set(['Sheep Herder', 'Making History', 'Regicide']);
+const done = new Set(['Sheep Herder', 'Making History', 'Regicide']);
+const skills = {
+  attack: 1,
+  defence: 1,
+  strength: 1,
+  hitpoints: 10,
+  ranged: 1,
+  prayer: 1,
+  magic: 1,
+  cooking: 1,
+  woodcutting: 1,
+  fletching: 1,
+  fishing: 1,
+  firemaking: 1,
+  crafting: 1,
+  smithing: 1,
+  mining: 1,
+  herblore: 1,
+  agility: 1,
+  thieving: 1,
+  slayer: 1,
+  farming: 1,
+  runecrafting: 1,
+  hunter: 1,
+  construction: 1,
+};
+
+
 
 const doWork = () => {
   const questDetailsHeaderNodeList = document.querySelectorAll('.questdetails-header');
