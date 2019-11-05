@@ -1,0 +1,33 @@
+{
+  "name": "OSRS Wiki View",
+  "version": "0.0",
+  "description": "A few changes to make osrs wiki more viewable",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "images/eot128.png"
+    }
+  },
+  "icons": {
+    "128": "images/eot128.png"
+  },
+  "content_scripts": [
+  {
+    "matches": [
+      "https://oldschool.runescape.wiki/*"
+    ],
+    "css": ["wiki.css"],
+    "js": ["wiki.js"]
+  }
+  ],
+  "permissions": [
+    "*://mail.google.com/*", "tabs", "webNavigation"
+  ],
+  "manifest_version": 2
+}
