@@ -7,9 +7,13 @@ QoL and accessibility changes for osrs wiki
 ### Quest Quick Guide Pages
 [x] checks off completed quests
 
-[] checks off stat requirements
+[x] checks off stat requirements
 
 ### General
 [x] hides sidebar at small screen widths
 
 
+## Limitations and future work
+* add a UI for the extension
+* get updated skill info from user name
+* (out of scope but related) a way to dump quests in
