@@ -1,21 +1,23 @@
-done = new Set(['Sheep Herder', 'Making History']);
+// good test page: -> https://oldschool.runescape.wiki/w/Song_of_the_Elves or /Quick_guide
+
+done = new Set(['Sheep Herder', 'Making History', 'Regicide']);
 
 const doWork = () => {
-  headerArray = [].slice.call(document.querySelectorAll('.questdetails-header'));
-  req = headerArray.filter((el)=>{return el.innerHTML === "Requirements"})[0];
-  reqTable = req.nextSibling;
-  reqs = reqTable.querySelectorAll('li');
-  reqsArray = [].slice.call(reqs);
+  const questDetailsHeaderNodeList = document.querySelectorAll('.questdetails-header');
+  const questDetailsHeaders = [].slice.call(questDetailsHeaderNodeList);
+  const requirementsHeader = questDetailsHeaders.filter((el)=>{return el.innerHTML === "Requirements"})[0];
+  const requirementsContent = requirementsHeader.nextSibling;
+  const requirementsNodeList = requirementsContent.querySelectorAll('li');
+  const requirements = [].slice.call(requirementsNodeList);
 
-  reqsArray.forEach(el=>{
+  requirements.forEach(el=>{
     if (done.has(el.innerText.split('\n')[0]) && !el.className.includes('checked')) {
       el.click();
+      // rather than settting className to checked manually, this allows for the
+      // standard click behavior which handles nested quests already
     }
   });
-  // reqsArray[n].click also works but only if you hit the top level quests only
-
 };
 
 setTimeout(()=>{doWork();}, 3000);
-// doWork();
-// make callback for stat pull instead of timeout (or combine)
+// TODO make callback for stat pull instead of timeout (or combine)
